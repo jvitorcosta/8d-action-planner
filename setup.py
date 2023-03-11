@@ -7,7 +7,7 @@ with open('LICENSE', 'r') as f:
     license = f.read()
 
 setup(
-    name='8D - Action Planner',
+    name='8D-Action-Planner',
     version='0.1.0',
     description='Sample package for Python-Guide.org',
     long_description=readme,
@@ -15,11 +15,11 @@ setup(
     author_email='joaovpro17@gmail.com',
     url='https://github.com/jvitorcosta/8d-action-planner',
     license=license,
-    packages=find_packages(exclude=('tests', 'docs')),
+    packages=find_packages(exclude=('tests', 'docs')) + ['src'],
     install_requires=[line.strip() for line in open('requirements.txt')],
     entry_points={
         'console_scripts': [
-            '8d=streamlit.run:main --server.enableCORS=false --server.port=8000 --server.headless=True --server.enableXsrfProtection=false'
+            'planner8=src.run_app:main'
         ]
     }
 )
