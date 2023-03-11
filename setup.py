@@ -1,25 +1,25 @@
-# -*- coding: utf-8 -*-
-
-# Learn more: https://github.com/kennethreitz/setup.py
-
 from setuptools import setup, find_packages
 
-
-with open('README.rst') as f:
+with open('README.md', 'r') as f:
     readme = f.read()
 
-with open('LICENSE') as f:
+with open('LICENSE', 'r') as f:
     license = f.read()
 
 setup(
-    name='sample',
+    name='8D - Action Planner',
     version='0.1.0',
     description='Sample package for Python-Guide.org',
     long_description=readme,
-    author='Kenneth Reitz',
-    author_email='me@kennethreitz.com',
-    url='https://github.com/kennethreitz/samplemod',
+    author='Diogismar Barai, Jean Sandro, João Vitor & Júlio Cézar',
+    author_email='joaovpro17@gmail.com',
+    url='https://github.com/jvitorcosta/8d-action-planner',
     license=license,
-    packages=find_packages(exclude=('tests', 'docs'))
+    packages=find_packages(exclude=('tests', 'docs')),
+    install_requires=[line.strip() for line in open('requirements.txt')],
+    entry_points={
+        'console_scripts': [
+            '8d=streamlit.run:main --server.enableCORS=false --server.port=8000 --server.headless=True --server.enableXsrfProtection=false'
+        ]
+    }
 )
-
